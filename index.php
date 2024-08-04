@@ -7,9 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+</style>
 </head>
-<body>
+<body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand;" href="index.php">Rose Hotel</a>
@@ -91,47 +102,117 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 ps-0">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-control shadow-non" >
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control shadow-non" >
             </div>
             <div class="col-md-6 p-0 mb-3">
-            <label class="form-label">Email </label>
-            <input type="email" class="form-control shadow-non" >
+              <label class="form-label">Email </label>
+              <input type="email" class="form-control shadow-non" >
             </div>
             <div class="col-md-6 ps-0 mb-3">
-            <label class="form-label">Phone Number</label>
-            <input type="nmber" class="form-control shadow-non" >
+              <label class="form-label">Phone Number</label>
+              <input type="number" class="form-control shadow-non" >
             </div>
-            <div class="col-md-6 p-0 ">
-            <label class="form-label">Picture </label>
-            <input type="file" class="form-control shadow-non" >
+            <div class="col-md-6 p-0 mb-3">
+              <label class="form-label">Picture </label>
+              <input type="file" class="form-control shadow-non" >
             </div>
-            <div class="col-md-12 p-0 ">
-            <label class="form-label">Address </label>
-            <textarea class="form-control shadow-non" rows="1"></textarea>
+            <div class="col-md-12 p-0 mb-3 ">
+              <label class="form-label">Address </label>
+              <textarea class="form-control shadow-non" rows="1"></textarea>
             </div>
-
+            <div class="col-md-6 ps-0 mb-3">
+              <label class="form-label">Pincode</label>
+              <input type="nmber" class="form-control shadow-non" >
+            </div>
+            <div class="col-md-6 p-0 mb-3">
+              <label class="form-label">Date of birth </label>
+              <input type="Date" class="form-control shadow-non" >
+            </div>
+            <div class="col-md-6 ps-0 mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control shadow-non" >
+            </div>
+            <div class="col-md-6 p-0 mb-3">
+              <label class="form-label">Confirm Password </label>
+              <input type="password" class="form-control shadow-non" >
+            </div>
         </div>
     </div>
 
-        <!--
-      <div class="mb-3">
-  </div>
-  <div class="mb-4">
-    <label class="form-label">Password</label>
-    <input type="password" class="form-control shadow-non" >
-  </div>
-  <div class=" d-flex align-items-center justify-content-between mb-2">
-    <button type="submit" class="btn btn-dark shadow-none ">Login</button>
-    <a href="javascript: void(0)" class="text-secondary text-decoration-none">Forgot Password?</a>
-  </div>-->
+    <div class="text-center my-1">
+      <button type="submit" class="btn btn-dark shadow-none">Register</button>
+    </div>
+
       </div>
       </form>
     </div>
   </div>
 </div>
 
+<div class="container-fluid px-lg-4 mt-4">
+  <div class="swiper swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="images/carousel/1.png" class="w-100 d-block" />
+      </div>
+      <div class="swiper-slide">
+        <img src="images/carousel/2.png" class="w-100 d-block"/>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/carousel/3.png" class="w-100 d-block" />
+      </div>
+      <div class="swiper-slide">
+        <img src="images/carousel/4.png" class="w-100 d-block"/>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/carousel/5.png" class="w-100 d-block"/>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/carousel/6.png" class="w-100 d-block"/>
+      </div>
 
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 bg-white shadow  p-4 rounded">
+      <h5>Check Booking Availability</h5>
+       <form >
+        <div class="row">
+          <div class="col-lg-3">
+          <label class="form-label" style="font-weight: 500">Check-in</label>
+          <input type="Date" class="form-control shadow-non" >
+          </div>
+        </div>
+       </form>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    var swiper = new Swiper(".swiper-container", {
+      spaceBetween: 30,
+      effect: "fade",
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
 </body>
 </html>
