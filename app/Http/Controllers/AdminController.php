@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Room;
 
+use App\Models\Booking;
+
 
 class AdminController extends Controller
 {
@@ -122,5 +124,9 @@ class AdminController extends Controller
 
             return redirect()->back();
 
+           }
+
+           public function bookings(){
+            return view('admin.booking');
            }
 }

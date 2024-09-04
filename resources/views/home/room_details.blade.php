@@ -4,6 +4,10 @@
          <base href="/public">
          @include('home.css')  
 
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+
          <style type="text/css">
             .form-group {
                margin-bottom: 15px; /* مسافة بين الحقول */
@@ -69,21 +73,52 @@
                   </div> 
                   <div class="col-md-4">
                      <h1 style="font-size: 40px ! important">Book Room</h1>
+                     <div>
+                        @if(session()->has('message'))
+                  <div class="alert alert-success">
+                     <button type="button" class="close" data-bs-dismiss="alert">X</button>
+                  {{session()->get('message')}}
+                  </div>  
+                         @endif
+                     </div>
 
+                     @if($errors)
+
+                     @foreach($errors->all() as $errors)
+
+                     <li style="color: red">
+                        {{$errors}}
+                     </li>
+
+                     @endforeach
+
+                     @endif
                      <form action="{{url('add_booking', $room->id)}}" method="post">
                         @csrf
 
                      <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control">
+                        <input type="text" id="name" name="name" class="form-control" 
+                        @if(Auth::id())
+                        value="{{Auth::user()->name}}"
+                        @endif
+                        >
                      </div>
                      <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control">
+                        <input type="email" id="email" name="email" class="form-control"
+                        @if(Auth::id())
+                        value="{{Auth::user()->email}}"
+                        @endif
+                        >
                      </div>
                      <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="number" id="phone" name="phone" class="form-control">
+                        <input type="number" id="phone" name="phone" class="form-control"
+                        @if(Auth::id())
+                        value="{{Auth::user()->phone}}"
+                        @endif
+                        >
                      </div>
                      <div class="form-group">
                         <label for="startDate">Start Date</label>
@@ -122,11 +157,11 @@
                var maxDate = year + '-' + month + '-' + day;
                $('#startDate').attr('min' , maxDate);
                $('#endDate').attr('min' , maxDate);
-
-               
+                
             });
-
-
             </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" 
+            crossorigin="anonymous"></script>
       </body>
 </html>
