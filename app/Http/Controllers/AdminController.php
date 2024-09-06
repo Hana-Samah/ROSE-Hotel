@@ -12,6 +12,14 @@ use App\Models\Room;
 
 use App\Models\Booking;
 
+use App\Models\Gallary;
+
+use App\Models\Contact;
+
+use Notification;
+
+use App\Notifications\SendEmailNotification;
+
 
 class AdminController extends Controller
 {
@@ -25,7 +33,9 @@ class AdminController extends Controller
             if($usertype == 'user')
             {
                 $room = Room::all();
-                return view('home.index',compact('room'));
+                $gallary = Gallary::all();
+
+                return view('home.index',compact('room','gallary'));
             }
     
             else if($usertype == 'admin')
@@ -44,7 +54,8 @@ class AdminController extends Controller
     public function home()
     {
         $room = Room::all();
-        return view('home.index',compact('room'));
+        $gallary = Gallary::all();
+        return view('home.index',compact('room','gallary'));
     }
 
     public function create_room()
@@ -127,6 +138,81 @@ class AdminController extends Controller
            }
 
            public function bookings(){
-            return view('admin.booking');
+            $data = Booking::all();
+            return view('admin.booking',compact('data'));
            }
+
+           public function delete_booking($id){
+            $data = Booking::find($id);
+            $data->delete();
+            return redirect()->back();
+           }
+
+           public function approve_book($id){
+
+            $booking = Booking::find($id);
+            $booking->status = 'approved';
+            $booking->save();
+            return redirect()->back();
+           }
+
+           public function rejected_book($id){
+
+            $booking = Booking::find($id);
+            $booking->status = 'rejected';
+            $booking->save();
+            return redirect()->back();
+           }
+
+           public function view_gallary(){
+            $gallary = Gallary::all();
+
+            return view('admin.gallary',compact('gallary'));
+
+           }
+
+           public function upload_gallary(Request $request){
+            $data = new Gallary();
+            $image = $request->image;
+            if($image){
+              $imagename=time().'.'.$image->getClientOriginalExtension();  
+              $request->image->move('gallary', $imagename);
+              $data->image=$imagename;
+              $data->save();
+              return redirect()->back();
+
+            }
+           }
+
+           public function delete_gallary($id){
+            $data = gallary::find($id);
+            $data->delete();
+            return redirect()->back();
+           }
+
+           public function all_messages(){
+            $data = Contact::all();
+            return view('admin.all_messages',compact('data'));
+           }
+
+           public function send_email($id){
+            $data = Contact::find($id); 
+            return view('admin.send_email',compact('data'));
+          }
+
+          public function mail(Request $request, $id){
+            $data = Contact::find($id);
+            
+            $details = [
+                'greeting' => $request->greeting,
+                'body' => $request->body,
+                'action_text' => $request->action_text,  
+                'action_url' => $request->action_url,  
+                'endline' => $request->endline,
+            ];
+
+            Notification::send($data,new SendEmailNotification($details));
+            return redirect()->back();
+        }
+        
 }

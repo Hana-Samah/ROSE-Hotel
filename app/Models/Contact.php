@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
-class Room extends Model
+class Contact extends Model
 {
     use HasFactory;
-
+    use Notifiable;
     protected $fillable = [
-        'image',
-
+        'name',
+        'email',
+        'phone',
+        'message',
     ];
 }
