@@ -1,7 +1,8 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+        <a  href="{{'/'}}"><img src="/images/logo.png" alt="#"  style="width: 70px; height: 65px; padding-top:0" /></a>
+
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -39,7 +40,7 @@
                     </a>
                 @endif
 
-                <x-button class="ms-4">
+                <x-button class="ms-4" style="background-color: #A52A2A; border-color: #A52A2A;">
                     {{ __('Log in') }}
                 </x-button>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Room;
+use App\Models\Gallary;
 
 use App\Models\Booking;
 use App\Models\Contact;
@@ -63,5 +64,24 @@ class HomeController extends Controller
         $contact->save();
         return redirect()->back()->with('message','Message Sent Successfully');
         
+    }
+
+    public function showGallery()
+    {
+        // جلب بيانات المعرض من قاعدة البيانات
+        $gallary = Gallary::all();
+    
+        // التحقق من البيانات
+        if ($gallary->isEmpty()) {
+            // معالجة حالة عدم وجود بيانات
+            $gallary = []; // يمكن تعيين مصفوفة فارغة بدلاً من false
+        }
+    
+        return view('home.gallery', compact('gallary'));
+    }
+
+    public function our_room(){
+        $room=Room::all();
+        return view('home.our_rooms',compact('room'));
     }
 }

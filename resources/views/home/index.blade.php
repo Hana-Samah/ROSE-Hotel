@@ -11,9 +11,7 @@
    <!-- body -->
    <body class="main-layout">
       <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#"/></div>
-      </div>
+
       <!-- end loader -->
       <!-- header -->
       <header>
@@ -27,7 +25,7 @@
       <!--end banner -->
 
       <!-- about -->
-      @include('home.about')  
+      @include('home.about0')  
       <!-- end about -->
 
       <!-- our_room -->
@@ -35,15 +33,21 @@
       <!-- end our_room -->
 
       <!-- gallery -->
-    @include('home.gallery')
+    @include('home.gallery0')
       <!-- end gallery -->
-
-      <!-- blog -->
-      @include('home.blog')  
-      <!-- end blog -->
+<br>
+       <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>visitor counter</h2>
+                       <h4>{{ App\Models\VisitorCounter::getCounter() }}
+                       </h4> 
+                    </div>
+                </div>
+            </div>
 
       <!--  contact -->
-        @include('home.contact')
+        @include('home.contact0')
       <!-- end contact -->
       <!--  footer -->
       <footer>

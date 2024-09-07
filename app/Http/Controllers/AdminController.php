@@ -21,6 +21,7 @@ use Notification;
 use App\Notifications\SendEmailNotification;
 
 
+
 class AdminController extends Controller
 {
     public function index(){
@@ -214,5 +215,9 @@ class AdminController extends Controller
             Notification::send($data,new SendEmailNotification($details));
             return redirect()->back();
         }
+
+ 
         
-}
+    }
+        
+

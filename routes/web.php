@@ -9,10 +9,10 @@ route::get('/',[AdminController::class,'home']);
 
 route::get('/home',[AdminController::class,'index'])->name('home');
 
-route::get('/room',[AdminController::class,'room']);
-route::get('/gallery',[AdminController::class,'gallery']);
-route::get('/about',[AdminController::class,'about']);
-route::get('/contact',[AdminController::class,'contact']);
+Route::get('/contact', function () { return view('home.contact');});
+
+Route::get('/about', function () { return view('home.about');});
+Route::get('/gallery', [HomeController::class, 'showGallery']);
 
 
 
@@ -48,12 +48,15 @@ route::get('/delete_gallary/{id}',[AdminController::class,'delete_gallary']);
 
 route::post('/contact',[HomeController::class,'contact']);
 
-route::post('/contact',[HomeController::class,'contact']);
 
 route::get('/all_messages',[AdminController::class,'all_messages']);
 
 route::get('/send_email/{id}',[AdminController::class,'send_email']);
 
 route::post('/mail/{id}',[AdminController::class,'mail']);
+
+route::get('/our_room',[HomeController::class,'our_room']);
+
+
 
 
