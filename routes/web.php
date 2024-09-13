@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GoogleController;
+
 
 
 route::get('/',[AdminController::class,'home']);
@@ -57,6 +59,8 @@ route::post('/mail/{id}',[AdminController::class,'mail']);
 
 route::get('/our_room',[HomeController::class,'our_room']);
 
+route::get('auth/google',[GoogleController::class,'googlepage']);
 
+route::get('auth/google/callback',[GoogleController::class,'googlecallback']);
 
 

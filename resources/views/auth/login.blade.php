@@ -1,8 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        /* CSS to style Google Login Button */
+.login-container {
+    text-align: right; /* Center the container */
+    margin-top: 20px; /* Add space above the button */
+}
+
+.google-login-button {
+    display: inline-block;
+    padding: 10px 20px; /* Padding inside the button */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    color: #fff; /* Text color */
+    background-color: #A52A2A; /* Google red color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+
+    </style>
+</head>
+<body>
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-        <a  href="{{'/'}}"><img src="/images/logo.png" alt="#"  style="width: 70px; height: 65px; padding-top:0" /></a>
-
+            <a href="{{ '/' }}">
+                <img src="/images/logo.png" alt="#" style="width: 70px; height: 65px; padding-top:0" />
+            </a>
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -44,6 +76,13 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+            
+            <!-- Google Login Button -->
+            <div class="login-container mt-4">
+                <a href="{{ url('auth/google') }}" class="google-login-button">Login with Google</a>
+            </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>
+</x-guest-layout> 
+</body>
+</html>

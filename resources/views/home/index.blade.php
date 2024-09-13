@@ -39,9 +39,19 @@
        <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
-                        <h2>visitor counter</h2>
-                       <h4>{{ App\Models\VisitorCounter::getCounter() }}
-                       </h4> 
+                    <section class="VisitorCounter">
+        <h2>Visitor Counter</h2>
+                <!-- Daily Visitor Counter the page-->
+        <div>
+            <p>Today</p>
+            <span id="dailyCounter">0</span>
+        </div>
+               <!-- Total Visitor Counter the page-->
+        <div>
+            <p>Total</p>
+            <span id="counter">0</span>
+        </div>
+    </section> 
                     </div>
                 </div>
             </div>
@@ -71,7 +81,42 @@
             $(window).scrollTop(sessionStorage.scrollTop);
           }
         });
+</script>
+<script type="text/javascript">
+        // Check if the user's browser supports local storage
+    if (typeof(Storage) !== "undefined") {
+      // Get the current date
+      let today = new Date();
+      // Get the stored counter for today's date, or set it to 0 if it doesn't exist
+      let dailyCounter = localStorage.getItem(today.toISOString().split("T")[0]) || 0;
+      // Increment the counter
+      dailyCounter++;
+      // Store the updated counter for today's date
+      localStorage.setItem(today.toISOString().split("T")[0], dailyCounter);
+      // Display the counter on the web page
 
+      document.getElementById("dailyCounter").innerHTML = dailyCounter;
+    } else {
+      document.getElementById("dailyCounter").innerHTML = "Local storage is not supported by your browser.";
+    }
+    //////////////////////////////////////////////////////////////////
+    const counterElement = document.getElementById('counter');
+    // Check if a visit count is stored in localStorage
+    let count = localStorage.getItem('visitorCount');
+    // If not, initialize it to 0
+    if (!count) {
+      count = 0;
+    } else {
+      // Otherwise, parse the string to a number
+      count = parseInt(count);
+    }
+    // Increment the count
+    count++;
+    // Update the localStorage
+    localStorage.setItem('visitorCount', count);
+    // Display the count
+    counterElement.innerText =  count;
+    
       </script>
    </body>
 </html>
