@@ -82,6 +82,9 @@
             <div class="login-container mt-4">
                 <a href="{{ url('auth/google') }}" class="google-login-button">Login with Google</a>
             </div>
+            <div class="login-container mt-4">
+                <a href="{{ url('auth/facebook') }}" class="google-login-button">Login with Facebbok</a>
+            </div>
         </form>
     </x-authentication-card>
 </x-guest-layout> 

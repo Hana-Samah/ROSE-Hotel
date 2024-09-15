@@ -1,4 +1,4 @@
-hillo<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head> 
         @include('admin.css')

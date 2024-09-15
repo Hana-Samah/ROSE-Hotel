@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\FacebookController;
 
 
 
@@ -62,5 +63,10 @@ route::get('/our_room',[HomeController::class,'our_room']);
 route::get('auth/google',[GoogleController::class,'googlepage']);
 
 route::get('auth/google/callback',[GoogleController::class,'googlecallback']);
+
+route::get('auth/facebook',[FacebookController::class,'facebookpage']);
+
+route::get('auth/facebook/callback',[FacebookController::class,'facebookredirect']);;
+
 
 

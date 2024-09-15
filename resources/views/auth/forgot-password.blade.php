@@ -1,7 +1,9 @@
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
+    <x-slot name="logo">
+            <a href="{{ '/' }}">
+                <img src="/images/logo.png" alt="#" style="width: 70px; height: 65px; padding-top:0" />
+            </a>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
