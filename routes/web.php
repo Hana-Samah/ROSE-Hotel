@@ -66,7 +66,14 @@ route::get('auth/google/callback',[GoogleController::class,'googlecallback']);
 
 route::get('auth/facebook',[FacebookController::class,'facebookpage']);
 
-route::get('auth/facebook/callback',[FacebookController::class,'facebookredirect']);;
+route::get('auth/facebook/callback',[FacebookController::class,'facebookredirect']);
+
+Route::get('room_details/{id}', [HomeController::class, 'room_details']);
+Route::post('add_review/{room_id}', [HomeController::class, 'add_review']);
+Route::post('add_booking/{room_id}', [HomeController::class, 'add_booking']);
+
+Route::get('view_reviews', [AdminController::class, 'view_reviews']);
+
 
 
 

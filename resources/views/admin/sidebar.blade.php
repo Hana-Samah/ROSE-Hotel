@@ -26,5 +26,9 @@
                   <a href="{{url('all_messages')}}"> <i class="icon-home"></i>Messages </a>
                 </li>
 
+                <li>
+                  <a href="{{url('view_reviews')}}"> <i class="icon-home"></i>Reviews </a>
+                </li> <!-- New Link -->
+
         </ul>
       </nav>

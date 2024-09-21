@@ -6,16 +6,45 @@ use Illuminate\Http\Request;
 
 use App\Models\Room;
 use App\Models\Gallary;
+use App\Models\Review; // إضافة هذا السطر لاستيراد نموذج Review
 
 use App\Models\Booking;
 use App\Models\Contact;
 
 class HomeController extends Controller
 {
-    public function room_details($id){
-        $room = Room::find($id);
-        return view('home.room_details', compact('room'));
+    public function room_details($id)
+    {
+        $room = Room::with('reviews')->find($id);
+
+        if (!$room) {
+            return redirect()->back()->with('message', 'Room not found');
+        }
+
+        return view('home.room_details', [
+            'room' => $room,
+            'reviews' => $room->reviews
+        ]);
     }
+
+    public function add_review(Request $request, $room_id)
+    {
+        $request->validate([
+            'user_name' => 'required|string|max:255',
+            'review' => 'required|string',
+            'rating' => 'required|integer|min:1|max:5'
+        ]);
+
+        $review = new Review();
+        $review->room_id = $room_id;
+        $review->user_name = $request->user_name;
+        $review->review = $request->review;
+        $review->rating = $request->rating;
+        $review->save();
+
+        return redirect()->back()->with('message', 'Review added successfully');
+    }
+
 
 
     public function add_booking(Request $request , $id){

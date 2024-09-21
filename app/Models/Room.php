@@ -11,6 +11,16 @@ class Room extends Model
 
     protected $fillable = [
         'image',
-
+        'room_title',
+        'description',
+        'wifi',
+        'room_type',
+        'price',
     ];
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+    
 }
