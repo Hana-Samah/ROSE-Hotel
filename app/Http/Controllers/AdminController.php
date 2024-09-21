@@ -20,6 +20,7 @@ use Notification;
 
 use App\Notifications\SendEmailNotification;
 
+use App\Models\Review;
 
 
 class AdminController extends Controller
@@ -217,6 +218,11 @@ class AdminController extends Controller
         }
 
  
+        public function view_reviews()
+        {
+            $reviews = Review::all();
+            return view('admin.view_reviews', compact('reviews'));
+        }
         
     }
         
