@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head> 
@@ -75,4 +76,5 @@
         </div>
         @include('admin.footer')
   </body>
+
 </html>

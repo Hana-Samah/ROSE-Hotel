@@ -87,4 +87,5 @@
 
         @include('admin.footer')
   </body>
-</html>
+
+  </html> 

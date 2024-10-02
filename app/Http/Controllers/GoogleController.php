@@ -35,8 +35,10 @@ class GoogleController extends Controller
                     return redirect()->intended('home');
             }
         }
+
         catch (Exception $e) {
             dd($e->getMessage());
             }
+
     }
 }

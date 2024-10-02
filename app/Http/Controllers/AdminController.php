@@ -220,6 +220,7 @@ class AdminController extends Controller
  
         public function view_reviews()
         {
+
             // استرجاع المراجعات مع الغرف المرتبطة بها
             $reviews = Review::with('room')->get();
             
@@ -234,6 +235,7 @@ class AdminController extends Controller
            }
         
         
+
         
     }
         

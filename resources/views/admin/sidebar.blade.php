@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
       <nav id="sidebar">
@@ -31,4 +32,5 @@
                 </li> <!-- New Link -->
 
         </ul>
+
       </nav>
