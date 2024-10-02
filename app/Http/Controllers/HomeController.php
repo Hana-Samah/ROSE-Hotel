@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Gallary;
 use App\Models\Review; // إضافة هذا السطر لاستيراد نموذج Review
-
 use App\Models\Booking;
 use App\Models\Contact;
+use App\Models\Visitor;
+
 
 class HomeController extends Controller
 {
+    
     public function room_details($id)
     {
         $room = Room::with('reviews')->find($id);
@@ -113,4 +115,5 @@ class HomeController extends Controller
         $room=Room::all();
         return view('home.our_rooms',compact('room'));
     }
+    
 }

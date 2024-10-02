@@ -220,9 +220,20 @@ class AdminController extends Controller
  
         public function view_reviews()
         {
-            $reviews = Review::all();
+            // استرجاع المراجعات مع الغرف المرتبطة بها
+            $reviews = Review::with('room')->get();
+            
+            // تمرير المراجعات إلى الـ view
             return view('admin.view_reviews', compact('reviews'));
         }
+
+        public function delete_reviews($id){
+            $data = Review::find($id);
+            $data->delete();
+            return redirect()->back();
+           }
+        
+        
         
     }
         
