@@ -38,6 +38,8 @@ class TrackVisitor
     
         return $next($request);
     }
+
+    
     
 
 }

@@ -9,4 +9,5 @@ class Visitor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ip_address', 'location', 'language'];}
+    protected $fillable = ['visit_date', 'visit_count'];
+}

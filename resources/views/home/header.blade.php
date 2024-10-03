@@ -8,8 +8,8 @@
         <div class="logo">
             <a href="{{'/'}}"><img src="images/logo.png" alt="#" style="width: 70px; height: 65px; padding-top: 0;" /></a>
         </div>
-        <div>
-            <h1 style="font-size: 50px; color: #000000; font-family: Arial, sans-serif; margin-left: 20px;">ROSE</h1>
+        <div >
+            <h1 class="rose" style="font-size: 50px; color: #000000; font-family: Arial, sans-serif; margin-left: 15px;">ROSE</h1>
         </div>
     </div>
 </div>
@@ -49,13 +49,13 @@
 
                                 @else
                                 <li classbtn-primary  style="padding-right: 10px;">
-                                    <a class="btn btn-success" href="{{url('login')}}" style="background-color: #A52A2A; border-color: #A52A2A;">Login</a>
+                                    <a id="login_btn" class="btn btn-success" href="{{url('login')}}" style="background-color: #A52A2A; border-color: #A52A2A;">Login</a>
                                 </li>
 
                                     @if (Route::has('register'))
 
                                     <li class="nav-item">
-                                         <a class="btn btn-primary" href="{{url('register')}}" style="background-color: #A52A2A; border-color: #A52A2A;">Register</a>
+                                         <a id="login_btn" class="btn btn-primary" href="{{url('register')}}" style="background-color: #A52A2A; border-color: #A52A2A;">Register</a>
                                     </li>
                                     @endif
                                 @endauth

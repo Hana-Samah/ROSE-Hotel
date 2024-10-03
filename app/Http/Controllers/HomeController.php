@@ -12,6 +12,7 @@ use App\Models\Contact;
 use App\Models\Visitor;
 
 
+
 class HomeController extends Controller
 {
     
@@ -116,6 +117,50 @@ class HomeController extends Controller
         $room=Room::all();
         return view('home.our_rooms',compact('room'));
     }
+
+
+    public function updateVisitorCount()
+    {
+        $today = date('Y-m-d');
+    
+        // تحقق مما إذا كان هناك سجل لليوم الحالي
+        $visitor = Visitor::firstOrNew(['visit_date' => $today]);
+        $visitor->visit_count++;
+        $visitor->save();
+    
+        return response()->json([
+            'today' => $visitor->visit_count,
+            'total' => Visitor::sum('visit_count')
+        ]);
+    }
+
+    public function storeData(Request $request)
+    {
+        // 1. الحصول على عنوان الـ IP
+        $ipAddress = $request->ip();
+
+        // 2. الحصول على الموقع باستخدام API خارجية مثل ipinfo.io
+        $locationData = file_get_contents("http://ipinfo.io/{$ipAddress}/json");
+        $location = json_decode($locationData, true);
+
+        // 3. الحصول على لغة الواجهة المفضلة
+        $uiLanguage = $request->getPreferredLanguage();
+
+        // 4. إنشاء استجابة جديدة وتخزين البيانات في الكوكيز
+        $response = new \Illuminate\Http\Response('Cookie data stored');
+
+        // تخزين عنوان الـ IP
+        $response->withCookie(cookie('ip_address', $ipAddress, 60 * 24)); // تخزين لمدة يوم واحد
+
+        // تخزين الموقع
+        $response->withCookie(cookie('location', json_encode($location), 60 * 24)); // تخزين لمدة يوم واحد
+
+        // تخزين لغة الواجهة
+        $response->withCookie(cookie('ui_language', $uiLanguage, 60 * 24)); // تخزين لمدة يوم واحد
+
+        return $response;
+    }
+    
     
 
 }
