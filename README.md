@@ -10,5 +10,14 @@ ROSE-Hotel is a hotel management system designed to streamline the administratio
 - **Booking System:** A flexible system for making room reservations, checking in guests, and handling cancellations.
 - **Customer Management:** Store and manage guest information, including contact details.
 
+  ## Technologies Used
+- **Backend:** Laravel (PHP Framework)
+- **Frontend:** Blade templating engine, HTML, CSS
+- **Database:** MySQL (or any other database supported by Laravel)
+
+## Contact
+For any inquiries, please contact Hana Samah via [hana.samoh948@gmail.com](mailto:hana.samoh948@gmail.com).
+
+
 
 
